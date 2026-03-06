@@ -43,13 +43,13 @@ jobs:
       - name: Tag Docker image
         run: |
           docker tag gateway-service:latest \
-          ${{ secrets.ECR_REPOSITORY }}/gateway-service:latest
+          ${{ secrets.ECR_REGISTRY }}/gateway-service:latest
 
 
       - name: Push Docker image to ECR
         run: |
           docker push \
-          ${{ secrets.ECR_REPOSITORY }}/gateway-service:latest
+          ${{ secrets.ECR_REGISTRY }}/gateway-service:latest
 
 
       - name: Update kubeconfig for EKS
